@@ -28,6 +28,20 @@ For example:
 def split(astring, splitter):
     """Split astring by splitter and return list of splits."""
 
+    # use .find()
+    # e.g. str.find(what you're looking for, start idx, end idx)
+        # if found, returns idx
+        # if not, returns -1
+
+    # initialize result lst
+    # keep track of idx
+
+    # loop through str until finished
+
+    # keep track of curr idx
+    # use .find and list slicing
+    # when no more instances of splitter, append rest of str to result
+    # return result
 
 if __name__ == '__main__':
     import doctest
