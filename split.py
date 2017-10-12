@@ -28,20 +28,39 @@ For example:
 def split(astring, splitter):
     """Split astring by splitter and return list of splits."""
 
-    # use .find()
-    # e.g. str.find(what you're looking for, start idx, end idx)
-        # if found, returns idx
-        # if not, returns -1
-
-    # initialize result lst
-    # keep track of idx
-
-    # loop through str until finished
-
-    # keep track of curr idx
-    # use .find and list slicing
     # when no more instances of splitter, append rest of str to result
     # return result
+
+    # initialize result lst + starting idx
+    # keep track of idx
+    result = []
+    idx = 0
+
+    # loop until str finished
+    while idx <= len(astring):
+
+        # initialize current idx. will use current idx + idx for list slicing.
+        curr_idx = idx
+
+        # use .find()
+            # e.g. str.find(what you're looking for, start idx, end idx)
+            # if found, returns idx
+            # if not, returns -1
+        idx = astring.find(splitter, idx)
+
+        # when found, append starting idx til idx where you found splitter
+        # via list slicing. then, update idx for while loop.
+        if idx != -1:
+            result.append(astring[curr_idx:idx])
+            idx += len(splitter)
+
+        # when splitter no longer found, append remaining str to result
+        else:
+            result.append(astring[curr_idx:])
+            break
+
+    return result
+
 
 if __name__ == '__main__':
     import doctest
